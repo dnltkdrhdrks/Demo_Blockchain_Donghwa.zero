@@ -8,7 +8,7 @@ const crypto = require('crypto');
 
 const app = express();
 
-// --- 미들웨어: 먼저 등록 ---
+// --- 미들웨어 ---
 app.use(express.json());
 app.use((req, res, next) => {
   console.log(`${new Date().toISOString()} ${req.method} ${req.url}`);
@@ -95,6 +95,7 @@ app.post('/verify-doc', (req, res) => {
   return res.json({ found: false });
 });
 
-// --- 서버 시작 (맨 마지막에) ---
+// --- 서버 시작 ---
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log('Server running on http://localhost:' + PORT));
+
